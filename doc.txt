@@ -1,0 +1,7 @@
+Libs, APIs and Frameworks:
+
+-Django
+-Bootstrap4
+
+-OpenCV
+-Yolo
