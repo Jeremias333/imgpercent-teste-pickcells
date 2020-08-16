@@ -11,8 +11,11 @@ import time
 #criará arquivo com objetos detectados.
 from csv import DictWriter
 
-#def index(req):
-	#return render(req, "index.html")
+contexto = {
+	"obj": "",
+	"percent": "",
+	"img_path_new": ""
+}
 
 def index(req):
     if req.method == 'POST' and req.FILES['myFile']:
