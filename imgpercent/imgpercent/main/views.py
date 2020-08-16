@@ -21,7 +21,8 @@ def index(req):
 	return render(req, "index.html")
 
 
-        filename = fs.save(myfile.name, myfile)#salva o arquivo + o nome dele.
+def result(req):
+	return render(req, "result.html", {"img_path_new": contexto["img_path_new"], "obj": contexto["obj"], "percent": contexto["percent"]})
 
         uploaded_file_url = fs.url(filename)
 
