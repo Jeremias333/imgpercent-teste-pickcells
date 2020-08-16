@@ -5,12 +5,13 @@ import shutil
 from django.conf import settings
 import os
 
-import numpy as np
+import numpy as np#biblioteca para utilizar matrizes e arrays multidimensionais.
 import cv2
 import time
 #criará arquivo com objetos detectados.
 from csv import DictWriter
 
+#Criado dicionário para persistir dados da submissão da imagem.
 contexto = {
 	"obj": "",
 	"percent": "",
