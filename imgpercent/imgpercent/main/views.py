@@ -1,7 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-# Create your views here.
+import shutil
+from django.conf import settings
+import os
+
+import numpy as np
+import cv2
+import time
+#criará arquivo com objetos detectados.
+from csv import DictWriter
 
 #def index(req):
 	#return render(req, "index.html")
