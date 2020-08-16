@@ -38,7 +38,6 @@ def submit(req):
 	if(fs.exists(fs.location)):
 		shutil.rmtree(fs.location)
 	else:
-		print("entrou")
 		os.mkdir(fs.location)
 	
 	"""
@@ -174,9 +173,6 @@ def submit(req):
 						cv2.putText(image, text_box_current, (x_min, y_min - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, colours_box_current, 2)
 
 						escritor_csv.writerow( {"Detectado": text_box_current.split(":")[0], "Acuracia": text_box_current.split(":")[1]})
-						#print(text_box_current.split(":")[0] +" - "+ text_box_current.split(":")[1])
-
-				#cv2.imshow("Yolo v3 Cam", image)
 				
 				if(text_box_current.split(":")[0] == "Gato" or text_box_current.split(":")[0] == "Cachorro"):
 					contexto["obj"] = text_box_current.split(":")[0]
@@ -191,12 +187,6 @@ def submit(req):
 					contexto["percent"] = r"00.00 % de chance de ser um cachorro ou gato"
 	
 				return redirect("../result")
-
-				#cv2.waitKey()
-				break
-
-		#cv2.destroyAllWindows()
-			
 	return render(req, 'submitimg.html')#acessa a página pedida
 
 
