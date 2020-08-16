@@ -4,4 +4,4 @@ Libs, APIs and Frameworks:
 -Bootstrap4
 
 -OpenCV
--Yolo
+-Yolov3
