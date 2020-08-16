@@ -7,6 +7,8 @@ verify_ssl = true
 
 [packages]
 django = "*"
+numpy = "*"
+opencv-python = "*"
 
 [requires]
 python_version = "3.8"
