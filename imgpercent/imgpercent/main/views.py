@@ -20,7 +20,6 @@ contexto = {
 def index(req):
 	return render(req, "index.html")
 
-        fs = FileSystemStorage()#objeto para salvar o arquivo
 
         filename = fs.save(myfile.name, myfile)#salva o arquivo + o nome dele.
 
