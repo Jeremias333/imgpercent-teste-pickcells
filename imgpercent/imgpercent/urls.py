@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 import imgpercent.main.views as view
 
@@ -7,7 +6,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', view.index, name="index"),
     path('recognition/', view.submit, name="submit"),
     path('about/', view.about, name="about"),
