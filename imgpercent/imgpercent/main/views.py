@@ -18,8 +18,7 @@ contexto = {
 }
 
 def index(req):
-    if req.method == 'POST' and req.FILES['myFile']:
-        myfile = req.FILES['myFile']
+	return render(req, "index.html")
 
         fs = FileSystemStorage()#objeto para salvar o arquivo
 
