@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from imgpercent.main.views import index
+import imgpercent.main.views as view
 
 #Para submissão de imagens
 from django.conf import settings
@@ -8,7 +8,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name="index"),
+    path('', view.index, name="index"),
+    path('recognition/', view.submit, name="submit"),
+    path('about/', view.about, name="about"),
+    path('result/', view.result, name="result"),
 ]
 
 #para submissão de imagens
