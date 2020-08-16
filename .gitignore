@@ -5,6 +5,11 @@ __pycache__/
 
 #aditional
 Pipfile.lock
+teste.csv
+mainteste.csv
+yolov3.weights
+results.csv
+media/
 
 # C extensions
 *.so
