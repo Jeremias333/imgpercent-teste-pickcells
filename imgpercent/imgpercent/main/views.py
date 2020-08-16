@@ -202,8 +202,3 @@ def submit(req):
 
 def about(req):
 	return render(req, "about.html")
-
-
-def show(req, img_path_new, obj, percent):
-
-	return render(req, "")
