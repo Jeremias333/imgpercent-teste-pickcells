@@ -17,8 +17,8 @@
 	<center>
 		<form enctype="multipart/form-data" method="POST">
 			{% csrf_token %}
-			<input type="file" name="myFile" accept="image/*" /><br>
-			<input type="submit" name="" value="Enviar">
+			<input type="file" name="myFile" accept="image/*" required="true"/><br>
+			<input type="submit" name="" value="Enviar" onclick="showLoad();">
 		</form>
 	</center>
 {% endblock %}
