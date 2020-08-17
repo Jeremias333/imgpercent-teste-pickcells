@@ -192,7 +192,7 @@ def submit(req):
 					contexto["percent"] = r"Abaixo de 50,00% de chance de ser um cachorro ou gato"
 	
 				return redirect("../result")
-	return render(req, 'submitimg.html', {"passe": _pass})#acessa a página pedida
+	return render(req, 'submitimg.html')#acessa a página pedida
 
 
 def about(req):
