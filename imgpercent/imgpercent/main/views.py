@@ -162,12 +162,16 @@ def submit(req):
 					for i in results.flatten():
 						x_min, y_min = bounding_boxes[i][0], bounding_boxes[i][1]
 						box_width, box_height = bounding_boxes[i][2], bounding_boxes[i][3]
-						colours_box_current = (0,255,0)
+						colours_box_current = (240,255,255)
 						image_new = cv2.rectangle(image, (x_min, y_min), (x_min + box_width, y_min + box_height), colours_box_current, 2)
 
+						#modificando porcentagem para 2 casas decimais.
+						percent = str(confidences[i])
+						percent_formatted = int(percent[2:6])
+						percent_formatted = str(percent_formatted/100)+"%"
 
 						#Preparando texto com rótulo e acuracia para o objeto detectado.
-						text_box_current = "{}: {:.4f}".format(labels[int(class_numbers[i])], confidences[i])
+						text_box_current = "{}: {}".format(labels[int(class_numbers[i])], percent_formatted)
 
 						# Coloca o texto nos objetos detectados
 						cv2.putText(image, text_box_current, (x_min, y_min - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, colours_box_current, 2)
@@ -177,17 +181,18 @@ def submit(req):
 				if(text_box_current.split(":")[0] == "Gato" or text_box_current.split(":")[0] == "Cachorro"):
 					contexto["obj"] = text_box_current.split(":")[0]
 					contexto["percent"] = text_box_current.split(":")[1]
-					img_path_new = os.path.join(fs.location, "new"+filename)
 					contexto["img_path_new"] = "../../media/new"+filename
-					
-					cv2.imwrite(f"{img_path_new}", image_new)
+
+					#unindo caminho para salvar imagem com retangulo e descrição.
+					img_path_new = os.path.join(fs.location, "new"+filename)
+					cv2.imwrite(f"{img_path_new}", image_new)#salvando nova imagem.
 				else:
 					contexto["img_path_new"] = "../../media/"+filename
-					contexto["obj"] = "Objeto não identificado como cachorro ou gato."
-					contexto["percent"] = r"00.00 % de chance de ser um cachorro ou gato"
+					contexto["obj"] = "Nesta imagem não identificados cachorro ou gato."
+					contexto["percent"] = r"Abaixo de 50,00% de chance de ser um cachorro ou gato"
 	
 				return redirect("../result")
-	return render(req, 'submitimg.html')#acessa a página pedida
+	return render(req, 'submitimg.html', {"passe": _pass})#acessa a página pedida
 
 
 def about(req):
