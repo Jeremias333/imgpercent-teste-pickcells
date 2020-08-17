@@ -1,5 +1,19 @@
 {% extends './base.html' %}
 {% block content %}
+	<script type="text/javascript">
+		function showLoad() {
+			//body = document.body
+			div = document.getElementById('load')
+			img = document.createElement("img");
+			img.src = "https://soudocampo.com.br/iconesClima/44.gif";
+			img.style.width = "30px"
+			img.style.height = "30px"
+			img.style.float = "center"
+			div.appendChild(img)
+			div.style.visibility = "visible"
+		}
+	</script>
+	<div id="load" style="visibility: hidden;" align="center">Carregando...</div>
 	<center>
 		<br>
 		<form enctype="multipart/form-data" method="POST">
