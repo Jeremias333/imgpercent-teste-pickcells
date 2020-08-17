@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -11,7 +12,7 @@
 		<title>IMG Percent</title>
 		<style type="text/css">
 			body {
-				background: url('https://source.unsplash.com/twukN12EN7c/1920x1080') no-repeat center center fixed;
+				background: url({% static 'background-patinhas.png' %}) no-repeat center center fixed;
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				background-size: cover;
@@ -25,7 +26,6 @@
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
