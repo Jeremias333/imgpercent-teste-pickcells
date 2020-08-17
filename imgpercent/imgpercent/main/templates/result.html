@@ -1,6 +1,10 @@
 {% extends './base.html' %}
 {% block content %}
 <center>
-	<img src="{{ img_path_new }}">
+	<h1>Identificamos que nesta imagem existe {{percent}} de chance de conter um {{obj}}</h1>
+	<br>
+	<div class="col-md-6">
+		<img src="{{ img_path_new }}" class="img-responsive img-rounded" alt="cachorro_gato" width="400" height="400">
+	</div>
 </center>
 {% endblock %}
