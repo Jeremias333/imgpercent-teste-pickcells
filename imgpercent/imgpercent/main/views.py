@@ -7,7 +7,6 @@ import os
 
 import numpy as np#biblioteca para utilizar matrizes e arrays multidimensionais.
 import cv2
-import time
 #criará arquivo com objetos detectados.
 from csv import DictWriter
 
@@ -18,14 +17,16 @@ contexto = {
 	"img_path_new": ""
 }
 
+#renderiza a página principal
 def index(req):
 	return render(req, "index.html")
 
-
+#renderiza a página de resultados
 def result(req):
+	#no contexto é passado o dicionário chamado contexto com seus determinados valores.
 	return render(req, "result.html", {"img_path_new": contexto["img_path_new"], "obj": contexto["obj"], "percent": contexto["percent"]})
 
-
+#renderiza a página de reconhecimento
 def submit(req):
 	#objeto para gerenciar arquivos de imagem
 	fs = FileSystemStorage()
@@ -54,10 +55,6 @@ def submit(req):
 
 		uploaded_file_url = fs.url(filename)#retorna o caminho completo do nome de arquivo passado.
 
-		#volta para mesma página mostrando onde se encontra o arquivo.
-		#return render(req, 'index.html', {
-		#    'uploaded_file_url': uploaded_file_url
-		#})
 		module_dir = os.path.dirname(__file__)#pega o diretório atual do arquivo.
 		file_path = os.path.join(module_dir, "yolofiles/yoloDados/")
 
@@ -66,8 +63,6 @@ def submit(req):
 		img_path = os.path.join(fs.location, filename)
 
 		image = cv2.imread(img_path)
-		#cv2.imshow("Yolo v3 Cam", image)
-		#camera = #cv2.VideoCapture(0, cv2.CAP_DSHOW)#setando a camera integrada do pc
 		
 		#variaveis de captura
 		h, w = None, None
@@ -100,15 +95,12 @@ def submit(req):
 		#colours = np.random.randint(0, 255, size=(len(labels), 3), dtype="uint8")
 
 		#loop de captura e detecção de objetos
-		with open(f"{module_dir}/results.csv", "w") as arquivo:
+		with open(f"{module_dir}/results.csv", "w") as arquivo:#criando/lendo o arquivo que vai guardar os testes
 			cabecalho = ["Objeto", "Porcentagem"]
 			escritor_csv = DictWriter(arquivo, fieldnames=cabecalho)
 			escritor_csv.writeheader()
 
 			while True:
-				#captura de camera frame por frame
-				#_, frame = camera.read()
-
 				if w is None or h is None:
 					#fatiar apenas dois primeiros elementos da tupla
 					h, w = image.shape[:2]
@@ -120,22 +112,15 @@ def submit(req):
 				#Implementando o passe direto com nosso blob somente atraves das camadas de saída
 				#Calculo ao mesmo tempo, tempo necessário para encaminhamento
 				network.setInput(blob) #definindo blob como entrada para a rede
-				start = time.time()
 				output_from_network = network.forward(layers_names_output)
-				end = time.time()
-
-				#mostrando o tempo gasto para um unico quadro atual
-				print("tempo gasto atual {:.5f} segundos".format(end - start))
 
 				#preparando listas para caixas delimitadoras detectadas
-
 				bounding_boxes = []
 				confidences = []
 				class_numbers = []
 
 				#passando por todas as camadas de saída após o avanço da alimentação
 				#fase de detecção dos objetos
-
 				for result in output_from_network:
 					for detected_objects in result:
 						scores = detected_objects[5:]
