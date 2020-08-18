@@ -100,4 +100,4 @@
 - Bootstrap4 - https://getbootstrap.com/docs/4.5/getting-started/introduction/
 
 - OpenCV - https://opencv-python-tutroals.readthedocs.io/en/latest/index.html
-- Yolov3 - pjreddie.com/darknet/yolo/
+- Yolov3 - https://pjreddie.com/darknet/yolo/
