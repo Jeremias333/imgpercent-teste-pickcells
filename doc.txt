@@ -1,7 +1,0 @@
-Libs, APIs and Frameworks:
-
--Django - 
--Bootstrap4 - 
-
--OpenCV - 
--Yolov3 - https://pjreddie.com/media/files/yolov3.weigths || pjreddie.com/darknet/yolo/
