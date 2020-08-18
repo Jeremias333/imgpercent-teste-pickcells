@@ -188,8 +188,7 @@ def submit(req):
 					cv2.imwrite(f"{img_path_new}", image_new)#salvando nova imagem.
 				else:
 					contexto["img_path_new"] = "../../media/"+filename
-					contexto["obj"] = "Nesta imagem não identificados cachorro ou gato."
-					contexto["percent"] = r"Abaixo de 50,00% de chance de ser um cachorro ou gato"
+					contexto["obj"] = "0"
 	
 				return redirect("../result")
 	return render(req, 'submitimg.html')#acessa a página pedida
