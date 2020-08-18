@@ -96,8 +96,8 @@
 #### Bibliotecas, Frameworks e APIs: :file_cabinet:
 - Python 3.8.3 - https://docs.python.org/3.8/
 
--Django - https://docs.djangoproject.com/en/3.0/
--Bootstrap4 - https://getbootstrap.com/docs/4.5/getting-started/introduction/
+- Django - https://docs.djangoproject.com/en/3.0/
+- Bootstrap4 - https://getbootstrap.com/docs/4.5/getting-started/introduction/
 
--OpenCV - https://opencv-python-tutroals.readthedocs.io/en/latest/index.html
--Yolov3 - pjreddie.com/darknet/yolo/
+- OpenCV - https://opencv-python-tutroals.readthedocs.io/en/latest/index.html
+- Yolov3 - pjreddie.com/darknet/yolo/
