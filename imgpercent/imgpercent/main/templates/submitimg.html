@@ -16,27 +16,27 @@
 	</script>
 	<style type="text/css">
 		.arquivo {
-		  display: none;
+			display: none;
 		}
 		.file {
-		  line-height: 30px;
-		  height: 30px;
-		  border: 1px solid #A7A7A7;
-		  padding: 5px;
-		  box-sizing: border-box;
-		  font-size: 15px;
-		  vertical-align: middle;
-		  width: 300px;
+			line-height: 30px;
+			height: 30px;
+			border: 1px solid #A7A7A7;
+			padding: 5px;
+			box-sizing: border-box;
+			font-size: 15px;
+			vertical-align: middle;
+			width: 300px;
 		}
 		.btnd {
-		  border: none;
-		  box-sizing: border-box;
-		  padding: 2px 10px;
-		  background-color: #DDA0DD;
-		  color: black;
-		  height: 32px;
-		  font-size: 15px;
-		  vertical-align: middle;
+			border: none;
+			box-sizing: border-box;
+			padding: 2px 10px;
+			background-color: #DDA0DD;
+			color: black;
+			height: 32px;
+			font-size: 15px;
+			vertical-align: middle;
 		}
 	</style>
 	<center>
@@ -67,13 +67,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		$('.btnd').on('click', function() {
-		  $('.arquivo').trigger('click');
+			$('.arquivo').trigger('click');	
 		});
-
 		$('.arquivo').on('change', function() {
-		  var fileName = $(this)[0].files[0].name;
-		  $('#file').val(fileName);
-		  $('#btn').attr("disabled", false);
+			var fileName = $(this)[0].files[0].name;
+			$('#file').val(fileName);
+			$('#btn').attr("disabled", false);
 		});
 	</script>
 {% endblock %}
