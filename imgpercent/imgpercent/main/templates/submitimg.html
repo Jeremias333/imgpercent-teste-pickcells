@@ -1,5 +1,6 @@
 {% extends './base.html' %}
 {% block content %}
+{% load static %}
 	<script type="text/javascript">
 		function showLoad() {
 			//body = document.body
@@ -15,10 +16,40 @@
 	</script>
 	<div id="load" style="visibility: hidden;" align="center">Carregando...</div>
 	<center>
-		<form enctype="multipart/form-data" method="POST">
-			{% csrf_token %}
-			<input type="file" name="myFile" accept="image/*" required="true"/><br>
-			<input type="submit" name="" value="Enviar" onclick="showLoad();">
-		</form>
+		<div style="color: black">
+			<div id="load" style="visibility: hidden;" align="center"><h4>Carregando...</h4></div>
+			<h4>Por favor selecione uma imagem que contenha um gato ou cachorro para ser identificada.</h4>
+			<img src="{% static 'img/caogato.jpg' %}" class="img-fluid" width="400px" height="300px">
+			<form enctype="multipart/form-data" method="POST">
+				{% csrf_token %}
+				<br>
+				<!-- <input type="file" name="myFile" accept="image/*" required="true"/><br> -->
+				<input type="file" name="myFile" class="arquivo" accept="image/*" required="true">
+				<input type="text" name="file" id="file" class="file" placeholder="Arquivo" readonly="readonly">
+				<input type="button" class="btnd" value="SELECIONAR"><br><br>
+				<input type="submit" id="btn" name="" class="btn btn-primary custom-btn" disabled="" style="background-color:  #DDA0DD; color: black;" value="Calcular imagem" onclick="showLoad();">
+			</form>
+			<br>
+			<br>
+			<h3 style="color: red">ATENÇÃO!!</h3>
+			<div align="left">
+				<li>Não selecione imagens com mais de um gato/cachorro. Ainda não está implementado tratamento para diversos animais/objetos em uma única foto.</li>
+				<li>O objetivo final do algoritmo é identificar se o objeto da foto enviada é um gato ou cachorro mostrando sua porcentagem de chance de ser (Ou se não foi identificado um cachorro/gato).</li>
+				<li>Outros objetos serão identificados, pois ainda não temos tratamento para evitar isto.</li>
+				<li>Poderá ser selecionada imagens que não contenham cachorro para poder testar o poder do algoritmo.</li>
+			</div>
+		</div>
 	</center>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$('.btnd').on('click', function() {
+		  $('.arquivo').trigger('click');
+		});
+
+		$('.arquivo').on('change', function() {
+		  var fileName = $(this)[0].files[0].name;
+		  $('#file').val(fileName);
+		  $('#btn').attr("disabled", false);
+		});
+	</script>
 {% endblock %}
