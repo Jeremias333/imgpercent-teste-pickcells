@@ -101,7 +101,7 @@ def submit(req):
 
 		#loop de captura e detecção de objetos
 		with open(f"{module_dir}/results.csv", "w") as arquivo:
-			cabecalho = ["Detectado", "Acuracia"]
+			cabecalho = ["Objeto", "Porcentagem"]
 			escritor_csv = DictWriter(arquivo, fieldnames=cabecalho)
 			escritor_csv.writeheader()
 
@@ -176,7 +176,7 @@ def submit(req):
 						# Coloca o texto nos objetos detectados
 						cv2.putText(image, text_box_current, (x_min, y_min - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, colours_box_current, 2)
 
-						escritor_csv.writerow( {"Detectado": text_box_current.split(":")[0], "Acuracia": text_box_current.split(":")[1]})
+						escritor_csv.writerow( {"Objeto": text_box_current.split(":")[0], "Porcentagem": text_box_current.split(":")[1]})
 				
 				if(text_box_current.split(":")[0] == "Gato" or text_box_current.split(":")[0] == "Cachorro"):
 					contexto["obj"] = text_box_current.split(":")[0]
