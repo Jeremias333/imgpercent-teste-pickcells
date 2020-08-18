@@ -8,11 +8,12 @@
 	    <!-- Bootstrap CSS -->
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-		<link rel="icon" type="image/png" href="" />
+		<link rel="icon" type="image/png" href="{% static 'img/percent.svg' %}" />
 		<title>IMG Percent</title>
 		<style type="text/css">
 			body {
-				background: url({% static 'background-patinhas.png' %}) no-repeat center center fixed;
+				color: white;
+				background: url({% static 'img/background-final.jpg' %}) no-repeat center center fixed;
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				background-size: cover;
@@ -21,29 +22,38 @@
 		</style>
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow" style="background-color: #8766b5;">
-			<b><a class="navbar-brand" href="/">IMG Percent</a></b>
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top mb-5 shadow" style="background-color: #8766b5;">
+			<b><img src="{% static 'img/percent.svg' %}" width="25" height="25"><a class="navbar-brand" href="/">&nbsp;IMG Percent</a></b>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="btn btn-info custom-btn active nav-link" href="/recognition"  style="color: white; background-color: green;"><span class="fas fa-search"></span> Reconhecer imagem
+						<a class="btn btn-info custom-btn active nav-link mr-2" href="/recognition"  style="color: black; background-color:	 #DDA0DD;"><span class="fas fa-search"></span> Reconhecer imagem
 						</a>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="/about" style="color: white;">Sobre</a>
+						<a class="btn btn-info custom-btn active nav-link" href="/about" style="color: black; background-color:#DDA0DD;"><span class="fas fa-users"></span> Sobre</a>
 					</li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
-					<img src="" class="rounded">
-				  	<label style="color: white">Lateral</label>
+					<label style="color: black; font-size: 17px;"><b>TESTE PARA</b></label>  
+					&nbsp;&nbsp;<a href="https://www.pickcells.bio"><img src="https://www.pickcells.bio/wp-content/themes/pickcells/assets/images/logo.png" width="100px"></a>&nbsp;
 				</form>
 			</div>
 		</nav>
-		{% block content %}
-        {% endblock %}
+		<br>
+		<br>
+		<div class="container">
+			<div class="card border-0 shadow my-5">
+    			<div class="card-body p-5">
+					{% block content %}
+			        {% endblock %}
+			    	<div style="height: 400px"></div>
+			    </div>
+			</div>
+		</div>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
