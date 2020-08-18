@@ -162,7 +162,7 @@ def submit(req):
 					for i in results.flatten():
 						x_min, y_min = bounding_boxes[i][0], bounding_boxes[i][1]
 						box_width, box_height = bounding_boxes[i][2], bounding_boxes[i][3]
-						colours_box_current = (240,255,255)
+						colours_box_current = (0,255,0)
 						image_new = cv2.rectangle(image, (x_min, y_min), (x_min + box_width, y_min + box_height), colours_box_current, 2)
 
 						#modificando porcentagem para 2 casas decimais.
