@@ -10,6 +10,7 @@ mainteste.csv
 yolov3.weights
 results.csv
 media/
+slides/
 
 # C extensions
 *.so
