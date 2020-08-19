@@ -1,4 +1,4 @@
-# :camera_flash: imgpercent-teste-pickcells
+# :camera_flash: IMG Percent
 
 ##### :question: É uma aplicação web feita em Django para testar imagens e dizer se identificou algum cachorro ou gato na imagem submetida dando como resultado a porcentagem de acerto relacionada aquela imagem.
 
